@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#display {
+    border: solid black 1px;
+    min-width: 500px;
+    max-width: 500px;
+    height: 100px;
+    text-align: center;
+}
+#buttons {
+    border: solid black 1px;
+    min-width: 500px;
+    max-width: 500px;
+    height: 500px;
+    display: flex;  
+}
+#numbers {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+}
+#operators {
+    display: flex;
+    flex-flow: wrap;
+    flex: 1 1 auto;
+}
+.btn {
+    display: flex;
+    width: 95px;
+    height: 95px;
+    align-items: center;
+    justify-content: center;
+    margin: 8px;
+    font-size: large;
+}
+button {
+    border-radius: 50px;
+}
+.symbol {
+    background-color: rgb(117, 117, 248);
+}
