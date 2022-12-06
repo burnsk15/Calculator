@@ -1,3 +1,5 @@
+//
+
 // function to add operands
 let add = (a, b) => (Number(a) + Number(b));
 
@@ -25,16 +27,15 @@ let operate = function(a, b, operator) {
     }
 }
 
+// global variables
 var results = 0;
 var firstNum = 0;
 var operator = "";
 var secondNum = 0;
 
-
-
 // function to display buttons pushed and results
 let display = function(num) {
-    const displayPara = document.getElementById('display');
+    const displayPara = document.getElementById('results');
 
     if (num === "=") {
         secondNum = displayPara.textContent;
@@ -46,6 +47,13 @@ let display = function(num) {
         operator = num;
         firstNum = displayPara.textContent;
         displayPara.textContent = "";
+       
+    } else if (num === "clear") {
+        displayPara.textContent = "";
+        firstNum = 0;
+        secondNum = 0;
+        operator = "";
+        results = 0;
         console.log(firstNum);
         console.log(operator);
     } else {
@@ -87,5 +95,7 @@ let divided = document.querySelector("#divide");
 divided.addEventListener('click', () => display("/"));
 let equals = document.querySelector("#equals");
 equals.addEventListener('click', () => display("="));
+let clear = document.querySelector("#clr");
+clear.addEventListener('click', () => display("clear"));
 
 //
