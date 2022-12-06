@@ -4,11 +4,16 @@ body {
     align-items: center;
 }
 #display {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     border: solid black 1px;
-    min-width: 500px;
-    max-width: 500px;
+    background-color: rgb(180, 180, 255);
+    padding-right: 2px;
+    min-width: 498px;
+    max-width: 498px;
     height: 100px;
-    text-align: center;
+    font-size: 50px;
 }
 #buttons {
     border: solid black 1px;
