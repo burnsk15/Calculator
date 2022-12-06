@@ -21,7 +21,10 @@ let operate = function(a, b, operator) {
     } else if (operator === "x") {
         return multiple(a, b);
     } else if (operator === "/") {
-        return divide(a, b);
+        if (b != 0){
+            return divide(a, b);
+        } else {
+        }return "Can't divide by 0!"
     } else {
         return "operate function ran"
     }
@@ -37,25 +40,24 @@ var secondNum = 0;
 let display = function(num) {
     const displayPara = document.getElementById('results');
 
-    if (num === "=") {
+    if (num === "=") { 
+        //run operate function if "=" is used and display results
         secondNum = displayPara.textContent;
-        //console.log(secondNum);
         results = operate(firstNum, secondNum, operator);
         displayPara.innerText = results;
         firstNum = results;
     } else if (num === "+" || num === "-" || num === "x" || num === "/") {
+        // sets the operator and firstNum variables, and resets the display to blank
         operator = num;
         firstNum = displayPara.textContent;
-        displayPara.textContent = "";
-       
+        displayPara.textContent = ""; 
     } else if (num === "clear") {
+        // clears all global variables when the clear button is clicked
         displayPara.textContent = "";
         firstNum = 0;
         secondNum = 0;
         operator = "";
         results = 0;
-        console.log(firstNum);
-        console.log(operator);
     } else {
         displayPara.innerText += num;
     }
@@ -97,5 +99,3 @@ let equals = document.querySelector("#equals");
 equals.addEventListener('click', () => display("="));
 let clear = document.querySelector("#clr");
 clear.addEventListener('click', () => display("clear"));
-
-//
