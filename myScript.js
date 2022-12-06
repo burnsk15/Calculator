@@ -1,5 +1,5 @@
 // function to add operands
-let add = (a, b) => a + b;
+let add = (a, b) => (Number(a) + Number(b));
 
 // funtion to subtract operands
 let subtract = (a, b) => a - b;
@@ -12,22 +12,47 @@ let divide = (a, b) => a / b;
 
 // function to take two values and an operator and call one of the above functions
 let operate = function(a, b, operator) {
-    if (operator === "+") {
+        if (operator === "+") {
         return add(a, b);
     } else if (operator === "-") {
         return subtract(a, b);
-    } else if (operator === "*") {
+    } else if (operator === "x") {
         return multiple(a, b);
     } else if (operator === "/") {
         return divide(a, b);
+    } else {
+        return "operate function ran"
     }
 }
 
+var results = 0;
+var firstNum = 0;
+var operator = "";
+var secondNum = 0;
+
+
+
 // function to display buttons pushed and results
 let display = function(num) {
-    const displayPara = document.getElementById("display");
-    displayPara.innerText += num;
+    const displayPara = document.getElementById('display');
+
+    if (num === "=") {
+        secondNum = displayPara.textContent;
+        //console.log(secondNum);
+        results = operate(firstNum, secondNum, operator);
+        displayPara.innerText = results;
+        firstNum = results;
+    } else if (num === "+" || num === "-" || num === "x" || num === "/") {
+        operator = num;
+        firstNum = displayPara.textContent;
+        displayPara.textContent = "";
+        console.log(firstNum);
+        console.log(operator);
+    } else {
+        displayPara.innerText += num;
+    }
 }
+
 
 // eventlisteners for each button
 let one = document.querySelector("#one");
@@ -62,3 +87,5 @@ let divided = document.querySelector("#divide");
 divided.addEventListener('click', () => display("/"));
 let equals = document.querySelector("#equals");
 equals.addEventListener('click', () => display("="));
+
+//
