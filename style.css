@@ -7,16 +7,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    border: solid black 1px;
+    border: solid rgb(0, 0, 54) 1px;
     background-color: rgb(180, 180, 255);
     padding-right: 2px;
     min-width: 498px;
     max-width: 498px;
     height: 100px;
     font-size: 50px;
+    margin: 0;
 }
 #buttons {
-    border: solid black 1px;
+    border: solid rgb(0, 0, 54) 1px;
     min-width: 500px;
     max-width: 500px;
     height: 500px;
@@ -40,6 +41,7 @@ body {
     justify-content: center;
     margin: 8px;
     font-size: large;
+
 }
 button {
     border-radius: 50px;
