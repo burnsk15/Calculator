@@ -21,6 +21,7 @@ let operate = function(a, b, operator) {
     } else if (operator === "x") {
         return multiple(a, b);
     } else if (operator === "/") {
+        // logic to prevent dividing by 0
         if (b != 0){
             return divide(a, b);
         } else {
@@ -46,11 +47,13 @@ let display = function(num) {
         results = operate(firstNum, secondNum, operator);
         displayPara.innerText = results;
         firstNum = results;
+        document.getElementById("dot").disable = true;
     } else if (num === "+" || num === "-" || num === "x" || num === "/") {
         // sets the operator and firstNum variables, and resets the display to blank
         operator = num;
         firstNum = displayPara.textContent;
         displayPara.textContent = ""; 
+        document.getElementById("dot").disable = true;
     } else if (num === "clear") {
         // clears all global variables when the clear button is clicked
         displayPara.textContent = "";
@@ -58,7 +61,11 @@ let display = function(num) {
         secondNum = 0;
         operator = "";
         results = 0;
+        document.getElementById("dot").disable = true;
     } else {
+        if (num === "."){
+            document.getElementById("dot").disable = false;
+        }
         displayPara.innerText += num;
     }
 }
