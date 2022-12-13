@@ -47,13 +47,21 @@ let display = function(num) {
         results = operate(firstNum, secondNum, operator);
         displayPara.innerText = results;
         firstNum = results;
-        document.getElementById("dot").disable = true;
+        operator = "";
     } else if (num === "+" || num === "-" || num === "x" || num === "/") {
-        // sets the operator and firstNum variables, and resets the display to blank
-        operator = num;
-        firstNum = displayPara.textContent;
-        displayPara.textContent = ""; 
-        document.getElementById("dot").disable = true;
+        if (operator != "") {
+            // run operate function if more than one operand is used.
+            secondNum = displayPara.textContent;
+            results = operate(firstNum, secondNum, operator);
+            displayPara.textContent = "";
+            firstNum = results;
+            operator = num;
+        } else {
+            // sets the operator and firstNum variables, and resets the display to blank
+             operator = num;
+            firstNum = displayPara.textContent;
+            displayPara.textContent = ""; 
+        }
     } else if (num === "clear") {
         // clears all global variables when the clear button is clicked
         displayPara.textContent = "";
@@ -61,11 +69,7 @@ let display = function(num) {
         secondNum = 0;
         operator = "";
         results = 0;
-        document.getElementById("dot").disable = true;
     } else {
-        if (num === "."){
-            document.getElementById("dot").disable = false;
-        }
         displayPara.innerText += num;
     }
 }
